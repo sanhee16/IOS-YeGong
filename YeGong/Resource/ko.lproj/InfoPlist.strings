@@ -1,0 +1,16 @@
+/* 
+  InfoPlist.strings
+  YeGong
+
+  Created by sandy on 2023/06/04.
+  
+*/
+
+"CFBundleDisplayName" = "청사진";
+"CFBundleName" = "청사진";
+
+"NSLocationAlwaysUsageDescription" = "지도에서 사용자의 현재 위치를 표시하기 위해 위치 정보를 얻으려고 합니다.";
+"NSLocationWhenInUseUsageDescription" = "지도에서 사용자의 현재 위치를 표시하기 위해 위치 정보를 얻으려고 합니다.";
+//"NSCameraUsageDescription" = "사진 촬영을 위한 카메라 접근을 허용해 주세요.";
+"NSPhotoLibraryUsageDescription" = "갤러리의 사진을 노트에 업로드하기 위해 사진 접근이 필요합니다.";
+"NSUserTrackingUsageDescription" = "사용자에게 맞춤 광고를 위해 정보를 수집하려 합니다.";
