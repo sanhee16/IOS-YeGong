@@ -7,4 +7,5 @@ target 'YeGong' do
   pod 'FittedSheets'
   pod 'Alamofire'
   pod 'lottie-ios'
+  pod 'RealmSwift'
 end

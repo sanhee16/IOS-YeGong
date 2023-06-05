@@ -1,6 +1,6 @@
 //
-//  Footprint++Bundle.swift
-//  Footprint
+//  YeGong++Bundle.swift
+//  YeGong
 //
 //  Created by sandy on 2023/01/04.
 //

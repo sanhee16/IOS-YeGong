@@ -1,6 +1,6 @@
 //
 //  Coordinator.swift
-//  Footprint
+//  YeGong
 //
 //  Created by sandy on 2022/10/05.
 //

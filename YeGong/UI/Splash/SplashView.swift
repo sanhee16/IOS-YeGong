@@ -1,6 +1,6 @@
 //
 //  SplashView.swift
-//  Footprint
+//  YeGong
 //
 //  Created by sandy on 2022/10/05.
 //
@@ -26,10 +26,6 @@ struct SplashView: View {
         GeometryReader { geometry in
             VStack(alignment: .center, spacing: 0) {
                 Spacer()
-                Image("icon_mark")
-                    .resizable()
-                    .scaledToFill()
-                    .frame(width: 70, height: 110, alignment: .center)
 //                LottieView(filename: "loading_bar")
 //                    .frame(both: 180.0)
                 Spacer()

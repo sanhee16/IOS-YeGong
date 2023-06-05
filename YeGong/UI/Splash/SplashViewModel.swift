@@ -1,6 +1,6 @@
 //
 //  SplashViewModel.swift
-//  Footprint
+//  YeGong
 //
 //  Created by sandy on 2022/10/05.
 //
@@ -12,11 +12,14 @@ import AVFoundation
 import UserNotifications
 import UIKit
 import AppTrackingTransparency
+import RealmSwift
+
 
 class SplashViewModel: BaseViewModel {
     private var timerRepeat: Timer?
-    
+    private let realm: Realm
     override init(_ coordinator: AppCoordinator) {
+        self.realm = try! Realm()
         super.init(coordinator)
     }
     
@@ -24,12 +27,60 @@ class SplashViewModel: BaseViewModel {
         checkNetworkConnect() {[weak self] in
             guard let self = self else { return }
             if !Defaults.launchBefore {
-                Defaults.launchBefore = true
+                self.createVocaDB()
                 self.firstLaunchTask()
                 self.startRepeatTimer()
+                Defaults.launchBefore = true
             } else {
+                if self.realm.objects(Voca.self).isEmpty {
+                    self.createVocaDB()
+                }
                 self.onStartSplashTimer()
             }
+        }
+    }
+    
+    private func parseCSVAt(url: URL) -> [VocaCSVModel] {
+        var list: [VocaCSVModel] = []
+        do {
+            let data = try Data(contentsOf: url)
+            let dataEncoded = String(data: data, encoding: .utf8)
+            if let dataArr = dataEncoded?.components(separatedBy: "\n").map({$0.components(separatedBy: ",")}) {
+                list = dataArr.compactMap({
+                    if $0.count == 3 {
+                        return VocaCSVModel($0)
+                    } else {
+                        return nil
+                    }
+                })
+            }
+            return list
+        } catch {
+            print("Error reading CSV file")
+            return []
+        }
+    }
+    
+    private func loadVoca() -> String? {
+        return Bundle.main.path(forResource: "Voca", ofType: "csv")
+    }
+    
+    private func insertToDB(_ list: [VocaCSVModel]) {
+        let vocaList = list.map { cvsModel -> Voca in
+            return Voca(cvsModel)
+        }
+        if !vocaList.isEmpty {
+            try! realm.write {
+                realm.add(vocaList)
+            }
+        }
+    }
+    
+    private func createVocaDB() {
+        print("createVocaDB")
+        if let path = loadVoca() {
+            let list = parseCSVAt(url: URL(fileURLWithPath: path))
+            insertToDB(list)
         }
     }
     
