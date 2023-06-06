@@ -21,12 +21,14 @@ enum SettingFlag: Int {
 
 struct VocaCSVModel {
     var word: String
-    var pronounce: String
+    var mean: String
+    var level: Int
     var examples: [String]
     
     init(_ values: [String]) {
         self.word = values[0]
-        self.pronounce = values[1]
-        self.examples = values[2].removingRegexMatches(pattern: "\\r").components(separatedBy: "*@*")
+        self.mean = values[1]
+        self.level = Int(values[2]) ?? 1
+        self.examples = values[3].removingRegexMatches(pattern: "\\r").components(separatedBy: "^^")
     }
 }

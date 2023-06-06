@@ -12,13 +12,23 @@ import RealmSwift
 
 class Voca: Object {
     @objc dynamic var word: String
-    @objc dynamic var pronounce: String
+    @objc dynamic var mean: String
+    @objc dynamic var level: Int
     dynamic var examples: List<String>
+    
+    dynamic var bookmarkTime: Int? //epoch
+    dynamic var studyTime: Int? //epoch
+    @objc dynamic var wrongCnt: Int
     
     override required init() {
         self.word = ""
-        self.pronounce = ""
+        self.mean = ""
+        self.level = 1
         self.examples = List<String>()
+        
+        self.bookmarkTime = nil
+        self.studyTime = nil
+        self.wrongCnt = 0
     }
     
     init(_ item: VocaCSVModel) {
@@ -27,8 +37,13 @@ class Voca: Object {
             list.append(i)
         }
         self.word = item.word
-        self.pronounce = item.pronounce
+        self.mean = item.mean
+        self.level = item.level
         self.examples = list
+        
+        self.bookmarkTime = nil
+        self.studyTime = nil
+        self.wrongCnt = 0
         super.init()
     }
 }

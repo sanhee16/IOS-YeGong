@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		261873162A2DD4B300D210AF /* Voca.csv in Resources */ = {isa = PBXBuildFile; fileRef = 261873152A2DD4B300D210AF /* Voca.csv */; };
 		2658EE2A2A2E00FA00CF8AFA /* RealmDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2658EE292A2E00FA00CF8AFA /* RealmDataModel.swift */; };
 		267019D02A2C5212001C18B5 /* C.swift in Sources */ = {isa = PBXBuildFile; fileRef = 267019CF2A2C5212001C18B5 /* C.swift */; };
 		267019D22A2C52B5001C18B5 /* MainTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 267019D12A2C52B5001C18B5 /* MainTabBar.swift */; };
@@ -29,6 +28,7 @@
 		26900A162A2B267100653275 /* DataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26900A152A2B267100653275 /* DataModel.swift */; };
 		26900A182A2B26D700653275 /* SwiftExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26900A172A2B26D700653275 /* SwiftExtension.swift */; };
 		26900A1C2A2B28DD00653275 /* SProgress.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26900A1B2A2B28DD00653275 /* SProgress.swift */; };
+		2699A0E02A2E42F800C27F68 /* Voca.csv in Resources */ = {isa = PBXBuildFile; fileRef = 2699A0DF2A2E42F800C27F68 /* Voca.csv */; };
 		26ED56012A2C0EAB006A8810 /* loading_circular.json in Resources */ = {isa = PBXBuildFile; fileRef = 26ED55FE2A2C0EAA006A8810 /* loading_circular.json */; };
 		26ED56022A2C0EAB006A8810 /* loading.json in Resources */ = {isa = PBXBuildFile; fileRef = 26ED55FF2A2C0EAB006A8810 /* loading.json */; };
 		26ED56032A2C0EAB006A8810 /* loading_bar.json in Resources */ = {isa = PBXBuildFile; fileRef = 26ED56002A2C0EAB006A8810 /* loading_bar.json */; };
@@ -46,7 +46,6 @@
 
 /* Begin PBXFileReference section */
 		0B35A1A16AD26E1A0855E8C8 /* Pods_YeGong.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_YeGong.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		261873152A2DD4B300D210AF /* Voca.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Voca.csv; sourceTree = "<group>"; };
 		2658EE292A2E00FA00CF8AFA /* RealmDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmDataModel.swift; sourceTree = "<group>"; };
 		266BFAA02A2DB9A900AB640F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		267019CF2A2C5212001C18B5 /* C.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = C.swift; sourceTree = "<group>"; };
@@ -70,6 +69,7 @@
 		26900A152A2B267100653275 /* DataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataModel.swift; sourceTree = "<group>"; };
 		26900A172A2B26D700653275 /* SwiftExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftExtension.swift; sourceTree = "<group>"; };
 		26900A1B2A2B28DD00653275 /* SProgress.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SProgress.swift; sourceTree = "<group>"; };
+		2699A0DF2A2E42F800C27F68 /* Voca.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Voca.csv; sourceTree = "<group>"; };
 		26ED55FE2A2C0EAA006A8810 /* loading_circular.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = loading_circular.json; sourceTree = "<group>"; };
 		26ED55FF2A2C0EAB006A8810 /* loading.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = loading.json; sourceTree = "<group>"; };
 		26ED56002A2C0EAB006A8810 /* loading_bar.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = loading_bar.json; sourceTree = "<group>"; };
@@ -227,7 +227,7 @@
 		26ED55FD2A2C0E77006A8810 /* Resource */ = {
 			isa = PBXGroup;
 			children = (
-				261873152A2DD4B300D210AF /* Voca.csv */,
+				2699A0DF2A2E42F800C27F68 /* Voca.csv */,
 				269009ED2A2B224800653275 /* Assets.xcassets */,
 				26ED56002A2C0EAB006A8810 /* loading_bar.json */,
 				26ED55FE2A2C0EAA006A8810 /* loading_circular.json */,
@@ -339,9 +339,9 @@
 				26ED56012A2C0EAB006A8810 /* loading_circular.json in Resources */,
 				26ED56022A2C0EAB006A8810 /* loading.json in Resources */,
 				26ED56132A2C1A64006A8810 /* ApiInfo.plist in Resources */,
-				261873162A2DD4B300D210AF /* Voca.csv in Resources */,
 				26ED561C2A2C1B53006A8810 /* Localizable.strings in Resources */,
 				269009EE2A2B224800653275 /* Assets.xcassets in Resources */,
+				2699A0E02A2E42F800C27F68 /* Voca.csv in Resources */,
 				26ED562C2A2C1DE4006A8810 /* InfoPlist.strings in Resources */,
 				26ED56032A2C0EAB006A8810 /* loading_bar.json in Resources */,
 			);
