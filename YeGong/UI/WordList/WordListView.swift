@@ -24,43 +24,45 @@ struct WordListView: View {
     
     var body: some View {
         GeometryReader { geometry in
-            VStack(alignment: .leading, spacing: 0) {
-                Topbar("WordList")
-                /*
-                 필터링 기능: 레벨
-                 단어 가리기 or 한글 가리기
-                 */
-                
-                HStack(alignment: .center, spacing: 0) {
-                    Spacer()
-                    ForEach(self.allTypes.indices, id: \.self) { idx in
-                        filterItem(self.allTypes[idx])
-                            .padding(.leading, 2)
+            ScrollViewReader { scrollProxy in
+                VStack(alignment: .leading, spacing: 0) {
+                    Topbar("WordList")
+                        .onTapGesture {
+                            scrollProxy.scrollTo($vm.bookmarkIdx.wrappedValue, anchor: .top)
+                        }
+                    /*
+                     필터링 기능: 레벨
+                     단어 가리기 or 한글 가리기
+                     */
+                    
+                    HStack(alignment: .center, spacing: 0) {
+                        Spacer()
+                        ForEach(self.allTypes.indices, id: \.self) { idx in
+                            filterItem(self.allTypes[idx])
+                                .padding(.leading, 2)
+                                .onTapGesture {
+                                    vm.onClickFilter(self.allTypes[idx])
+                                }
+                        }
+                        
+                        Divider()
+                            .frame(height: 20, alignment: .center)
+                            .padding(4)
+                        
+                        visibleItem("영어", isVisible: $vm.isVisibleWord.wrappedValue)
                             .onTapGesture {
-                                vm.onClickFilter(self.allTypes[idx])
+                                $vm.isVisibleWord.wrappedValue = !$vm.isVisibleWord.wrappedValue
+                                Defaults.isVisibleWord = $vm.isVisibleWord.wrappedValue
+                            }
+                            .padding(.trailing, 2)
+                        visibleItem("한글", isVisible: $vm.isVisibleMean.wrappedValue)
+                            .onTapGesture {
+                                $vm.isVisibleMean.wrappedValue = !$vm.isVisibleMean.wrappedValue
+                                Defaults.isVisibleMean = $vm.isVisibleMean.wrappedValue
                             }
                     }
+                    .padding(EdgeInsets(top: 2, leading: 0, bottom: 2, trailing: 8))
                     
-                    Divider()
-                        .frame(height: 20, alignment: .center)
-                        .padding(4)
-                    
-                    visibleItem("영어", isVisible: $vm.isVisibleWord.wrappedValue)
-                        .onTapGesture {
-                            $vm.isVisibleWord.wrappedValue = !$vm.isVisibleWord.wrappedValue
-                            Defaults.isVisibleWord = $vm.isVisibleWord.wrappedValue
-                        }
-                        .padding(.trailing, 2)
-                    visibleItem("한글", isVisible: $vm.isVisibleMean.wrappedValue)
-                        .onTapGesture {
-                            $vm.isVisibleMean.wrappedValue = !$vm.isVisibleMean.wrappedValue
-                            Defaults.isVisibleMean = $vm.isVisibleMean.wrappedValue
-                        }
-                }
-                .padding(EdgeInsets(top: 2, leading: 0, bottom: 2, trailing: 8))
-                
-                
-                ScrollViewReader { scrollProxy in
                     ScrollView(.vertical, showsIndicators: true) {
                         VStack(spacing: 0) {
                             ForEach($vm.list.wrappedValue.indices, id: \.self) { idx in
@@ -74,13 +76,14 @@ struct WordListView: View {
                             }
                         }
                     }
+                    
                 }
-            }
-            .padding(EdgeInsets(top: safeTop, leading: 0, bottom: safeBottom, trailing: 0))
-            .edgesIgnoringSafeArea(.all)
-            .frame(width: geometry.size.width, alignment: .leading)
-            .onAppear {
-                vm.onAppear()
+                .padding(EdgeInsets(top: safeTop, leading: 0, bottom: safeBottom, trailing: 0))
+                .edgesIgnoringSafeArea(.all)
+                .frame(width: geometry.size.width, alignment: .leading)
+                .onAppear {
+                    vm.onAppear()
+                }
             }
         }
     }
@@ -147,7 +150,7 @@ struct WordListView: View {
         }
         .contentShape(Rectangle())
         .onTapGesture(count: 2, perform: {
-            vm.onLongClick(idx)
+            vm.onLongClick(item, idx: idx)
         })
     }
 }

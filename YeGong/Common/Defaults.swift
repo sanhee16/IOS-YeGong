@@ -26,8 +26,8 @@ class Defaults {
     public static var launchBefore
     
     // 마지막 학습한 idx
-    @UserDefault<Int>(key: "BOOKMARK_IDX", defaultValue: 0)
-    public static var bookmarkIdx
+    @UserDefault<String>(key: "BOOKMARK_ID", defaultValue: "")
+    public static var bookmarkId
     
     // 메인에 띄울 레벨 선택 - 복수선택 가넝한
     @UserDefault<[Int]>(key: "STUDY_FILTER", defaultValue: [1,2,3])

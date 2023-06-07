@@ -12,7 +12,7 @@ import RealmSwift
 
 class WordListViewModel: BaseViewModel {
     @Published var list: [Voca]
-    @Published var bookmarkIdx: Int = Defaults.bookmarkIdx
+    @Published var bookmarkIdx: Int = 0
     @Published var filters: [LevelBadgeType] = []
     @Published var isVisibleWord: Bool = Defaults.isVisibleWord
     @Published var isVisibleMean: Bool = Defaults.isVisibleMean
@@ -45,15 +45,24 @@ class WordListViewModel: BaseViewModel {
         self.list = Array(self.realm.objects(Voca.self).filter({ voca in
             self.filters.contains { $0.rawValue == voca.level }
         }))
+        
+        if let idx = self.list.firstIndex(where: { $0._id.stringValue == Defaults.bookmarkId }) {
+            Defaults.bookmarkId = self.list[idx]._id.stringValue
+            self.bookmarkIdx = idx
+        } else {
+//            Defaults.bookmarkId = ""
+            self.bookmarkIdx = 0
+        }
     }
     
-    func onLongClick(_ idx: Int) {
-        if Defaults.bookmarkIdx == idx {
-            Defaults.bookmarkIdx = 0
+    func onLongClick(_ item: Voca, idx: Int) {
+        if Defaults.bookmarkId == item._id.stringValue {
+            Defaults.bookmarkId = ""
+            self.bookmarkIdx = 0
         } else {
-            Defaults.bookmarkIdx = idx
+            Defaults.bookmarkId = item._id.stringValue
+            self.bookmarkIdx = idx
         }
-        self.bookmarkIdx = Defaults.bookmarkIdx
     }
     
     func onClickFilter(_ type: LevelBadgeType) {
@@ -68,6 +77,7 @@ class WordListViewModel: BaseViewModel {
         
         getVoca()
     }
+    
     func onTapStar(_ item: Voca) {
         if isLoading {
             return
