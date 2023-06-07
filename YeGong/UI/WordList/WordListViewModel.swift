@@ -12,6 +12,7 @@ import RealmSwift
 
 class WordListViewModel: BaseViewModel {
     @Published var list: [Voca]
+    @Published var lastStudyIdx: Int = Defaults.lastStudyIdx
     private var isLoading: Bool = false
     private let realm: Realm
     
@@ -32,12 +33,18 @@ class WordListViewModel: BaseViewModel {
     
     func getVoca() {
         self.list = Array(self.realm.objects(Voca.self))
-//        Array(self.realm.objects(Voca.self)).forEach { i in
-//            self.list.append(Voca(id: i._id, word: i.word, mean: i.mean, level: i.level, examples: i.examples, bookmarkTime: i.bookmarkTime, studyTime: i.studyTime, wrongCnt: i.wrongCnt))
-//        }
     }
     
-    func onTapBookmark(_ item: Voca) {
+    func onLongClick(_ idx: Int) {
+        if Defaults.lastStudyIdx == idx {
+            Defaults.lastStudyIdx = 0
+        } else {
+            Defaults.lastStudyIdx = idx
+        }
+        self.lastStudyIdx = Defaults.lastStudyIdx
+    }
+    
+    func onTapStar(_ item: Voca) {
         if isLoading {
             return
         }
@@ -45,10 +52,10 @@ class WordListViewModel: BaseViewModel {
         
         if let idx = self.list.firstIndex(where: {$0._id == item._id}) {
             try! self.realm.write {[weak self] in
-                let value = item.bookmarkTime == nil ? Util.currentTime() : nil
+                let value = item.starTime == nil ? Util.currentTime() : nil
                 
                 if let theWord = self?.realm.object(ofType: Voca.self, forPrimaryKey: item._id) {
-                    theWord.bookmarkTime = value
+                    theWord.starTime = value
                     //MARK: Trouble Shooting:
                     /*
                      원래는
