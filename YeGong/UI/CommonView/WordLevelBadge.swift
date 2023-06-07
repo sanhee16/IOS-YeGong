@@ -41,13 +41,13 @@ struct WordLevelBadge: View {
     let type: LevelBadgeType
     var body: some View {
         Text(type.text)
-            .font(.kr9r)
+            .font(.kr12b)
             .foregroundColor(.white)
-            .padding(4)
+            .padding(3)
             .background(
                 Circle()
                     .foregroundColor(type.color)
             )
-            .opacity(0.8)
+            .opacity(0.75)
     }
 }

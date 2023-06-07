@@ -27,6 +27,7 @@ struct WordListView: View {
                 ScrollView(.vertical, showsIndicators: true) {
                     ForEach($vm.list.wrappedValue.indices, id: \.self) { idx in
                         wordItem($vm.list.wrappedValue[idx])
+                        Divider()
                     }
                 }
             }
@@ -40,26 +41,28 @@ struct WordListView: View {
     }
     
     private func wordItem(_ item: Voca) -> some View {
-        return VStack(alignment: .leading, spacing: 8) {
-            HStack(alignment: .center, spacing: 6) {
-                WordLevelBadge(type: item.level.levelBadgeType())
-                Text(item.word)
-                    .font(.kr14b)
-                    .foregroundColor(.gray90)
-                Spacer()
-                
-                //TODO: 북마크 표시
-                Image(item.bookmarkTime == nil ? "star_off" : "star_on")
-                    .resizable()
-                    .scaledToFit()
-                    .frame(both: 14)
-                    .onTapGesture {
-                        vm.onTapBookmark(item)
-                    }
+        return HStack(alignment: .center, spacing: 0) {
+            VStack(alignment: .leading, spacing: 8) {
+                HStack(alignment: .center, spacing: 4) {
+                    Text(item.word)
+                        .font(.kr18b)
+                        .foregroundColor(.gray90)
+                    WordLevelBadge(type: item.level.levelBadgeType())
+                    Spacer()
+                }
+                Text(item.mean)
+                    .font(.kr16r)
+                    .foregroundColor(.gray60)
             }
-            Text(item.mean)
-                .font(.kr12r)
-                .foregroundColor(.gray60)
+            Spacer()
+            Image(item.bookmarkTime == nil ? "star_off" : "star_on")
+                .resizable()
+                .scaledToFit()
+                .frame(both: 20)
+                .onTapGesture {
+                    vm.onTapBookmark(item)
+                }
         }
+        .padding(EdgeInsets(top: 4, leading: 8, bottom: 4, trailing: 8))
     }
 }
