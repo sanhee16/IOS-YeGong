@@ -26,18 +26,18 @@ class Defaults {
     public static var launchBefore
     
     // 마지막 학습한 idx
-    @UserDefault<Int>(key: "LAST_STUDY_IDX", defaultValue: 0)
-    public static var lastStudyIdx
+    @UserDefault<Int>(key: "BOOKMARK_IDX", defaultValue: 0)
+    public static var bookmarkIdx
     
     // 메인에 띄울 레벨 선택 - 복수선택 가넝한
     @UserDefault<[Int]>(key: "STUDY_FILTER", defaultValue: [1,2,3])
     public static var studyFilter
     
-    @UserDefault<Bool>(key: "VISIBLE_ENGLISH", defaultValue: true)
-    public static var visibleEnglish
+    @UserDefault<Bool>(key: "IS_VISIBLE_WORD", defaultValue: true)
+    public static var isVisibleWord
     
-    @UserDefault<Bool>(key: "VISIBLE_KOREAN", defaultValue: true)
-    public static var visibleKorean
+    @UserDefault<Bool>(key: "IS_VISIBLE_MEAN", defaultValue: true)
+    public static var isVisibleMean
     
     // 0: 전체. 1: 북마크
     @UserDefault<Int>(key: "STUDY_MODE", defaultValue: 0)

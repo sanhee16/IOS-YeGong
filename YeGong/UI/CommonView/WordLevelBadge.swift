@@ -40,14 +40,17 @@ enum LevelBadgeType: Int {
 struct WordLevelBadge: View {
     let type: LevelBadgeType
     var body: some View {
-        Text(type.text)
-            .font(.kr12b)
-            .foregroundColor(.white)
-            .padding(3)
-            .background(
-                Circle()
-                    .foregroundColor(type.color)
-            )
-            .opacity(0.75)
+        ZStack(alignment: .center) {
+            Text(type.text)
+                .font(.kr12b)
+                .foregroundColor(.white)
+                .zIndex(1)
+            
+            Circle()
+                .foregroundColor(type.color)
+                .frame(both: 17, aligment: .center)
+                .opacity(0.75)
+        }
+        .contentShape(Rectangle())
     }
 }

@@ -12,7 +12,10 @@ import RealmSwift
 
 class WordListViewModel: BaseViewModel {
     @Published var list: [Voca]
-    @Published var lastStudyIdx: Int = Defaults.lastStudyIdx
+    @Published var bookmarkIdx: Int = Defaults.bookmarkIdx
+    @Published var filters: [LevelBadgeType] = []
+    @Published var isVisibleWord: Bool = Defaults.isVisibleWord
+    @Published var isVisibleMean: Bool = Defaults.isVisibleMean
     private var isLoading: Bool = false
     private let realm: Realm
     
@@ -20,6 +23,12 @@ class WordListViewModel: BaseViewModel {
         self.list = []
         self.realm = R.realm
         super.init(coordinator)
+        
+        Defaults.studyFilter.forEach { i in
+            if let type = LevelBadgeType(rawValue: i) {
+                self.filters.append(type)
+            }
+        }
     }
     
     func onAppear() {
@@ -32,18 +41,33 @@ class WordListViewModel: BaseViewModel {
     }
     
     func getVoca() {
-        self.list = Array(self.realm.objects(Voca.self))
+        self.list.removeAll()
+        self.list = Array(self.realm.objects(Voca.self).filter({ voca in
+            self.filters.contains { $0.rawValue == voca.level }
+        }))
     }
     
     func onLongClick(_ idx: Int) {
-        if Defaults.lastStudyIdx == idx {
-            Defaults.lastStudyIdx = 0
+        if Defaults.bookmarkIdx == idx {
+            Defaults.bookmarkIdx = 0
         } else {
-            Defaults.lastStudyIdx = idx
+            Defaults.bookmarkIdx = idx
         }
-        self.lastStudyIdx = Defaults.lastStudyIdx
+        self.bookmarkIdx = Defaults.bookmarkIdx
     }
     
+    func onClickFilter(_ type: LevelBadgeType) {
+        if let idx = self.filters.firstIndex(where: { $0 == type }) {
+            self.filters.remove(at: idx)
+        } else {
+            self.filters.append(type)
+        }
+        Defaults.studyFilter = self.filters.map({ t in
+            t.rawValue
+        })
+        
+        getVoca()
+    }
     func onTapStar(_ item: Voca) {
         if isLoading {
             return

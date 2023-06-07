@@ -19,12 +19,47 @@ struct WordListView: View {
     
     private var safeTop: CGFloat { get { Util.safeTop() }}
     private var safeBottom: CGFloat { get { Util.safeBottom() }}
+    private let allTypes: [LevelBadgeType] = [.lv1, .lv2, .lv3]
     @State private var scrollPosition: CGPoint = .zero
     
     var body: some View {
         GeometryReader { geometry in
             VStack(alignment: .leading, spacing: 0) {
                 Topbar("WordList")
+                /*
+                 필터링 기능: 레벨
+                 단어 가리기 or 한글 가리기
+                 */
+                
+                HStack(alignment: .center, spacing: 0) {
+                    Spacer()
+                    ForEach(self.allTypes.indices, id: \.self) { idx in
+                        filterItem(self.allTypes[idx])
+                            .padding(.leading, 2)
+                            .onTapGesture {
+                                vm.onClickFilter(self.allTypes[idx])
+                            }
+                    }
+                    
+                    Divider()
+                        .frame(height: 20, alignment: .center)
+                        .padding(4)
+                    
+                    visibleItem("영어", isVisible: $vm.isVisibleWord.wrappedValue)
+                        .onTapGesture {
+                            $vm.isVisibleWord.wrappedValue = !$vm.isVisibleWord.wrappedValue
+                            Defaults.isVisibleWord = $vm.isVisibleWord.wrappedValue
+                        }
+                        .padding(.trailing, 2)
+                    visibleItem("한글", isVisible: $vm.isVisibleMean.wrappedValue)
+                        .onTapGesture {
+                            $vm.isVisibleMean.wrappedValue = !$vm.isVisibleMean.wrappedValue
+                            Defaults.isVisibleMean = $vm.isVisibleMean.wrappedValue
+                        }
+                }
+                .padding(EdgeInsets(top: 2, leading: 0, bottom: 2, trailing: 8))
+                
+                
                 ScrollViewReader { scrollProxy in
                     ScrollView(.vertical, showsIndicators: true) {
                         VStack(spacing: 0) {
@@ -35,7 +70,7 @@ struct WordListView: View {
                                     .padding(0)
                             }
                             .onAppear {
-                                scrollProxy.scrollTo($vm.lastStudyIdx.wrappedValue, anchor: .top)
+                                scrollProxy.scrollTo($vm.bookmarkIdx.wrappedValue, anchor: .top)
                             }
                         }
                     }
@@ -48,12 +83,38 @@ struct WordListView: View {
                 vm.onAppear()
             }
         }
-        
+    }
+    
+    private func visibleItem(_ text: String, isVisible: Bool) -> some View {
+        return ZStack(alignment: .center) {
+            Text(text)
+                .font(.kr14r)
+                .foregroundColor(.black)
+                .zIndex(1)
+            
+            RoundedRectangle(cornerRadius: 2)
+                .frame(width: 34, height: 22, alignment: .center)
+                .foregroundColor(isVisible ? Color(hex: "#069168") : .gray30)
+        }
+        .contentShape(Rectangle())
+    }
+    
+    private func filterItem(_ item: LevelBadgeType) -> some View {
+        return ZStack(alignment: .center) {
+            Text(item.text)
+                .font(.kr14r)
+                .foregroundColor(.black)
+                .zIndex(1)
+            
+            RoundedRectangle(cornerRadius: 2)
+                .frame(both: 22, aligment: .center)
+                .foregroundColor($vm.filters.wrappedValue.contains(where: { $0 == item }) ? item.color : .gray30)
+        }
     }
     
     private func wordItem(_ item: Voca, idx: Int) -> some View {
         return ZStack(alignment: .topLeading) {
-            if idx == $vm.lastStudyIdx.wrappedValue {
+            if idx == $vm.bookmarkIdx.wrappedValue {
                 Image("bookmark")
                     .resizable()
                     .scaledToFit()
@@ -64,12 +125,12 @@ struct WordListView: View {
             HStack(alignment: .center, spacing: 0) {
                 VStack(alignment: .leading, spacing: 8) {
                     HStack(alignment: .center, spacing: 4) {
-                        Text(item.word)
+                        Text($vm.isVisibleWord.wrappedValue ? item.word : "")
                             .font(.kr18b)
                             .foregroundColor(.gray90)
                         WordLevelBadge(type: item.level.levelBadgeType())
                     }
-                    Text(item.mean)
+                    Text($vm.isVisibleMean.wrappedValue ? item.mean : "")
                         .font(.kr16r)
                         .foregroundColor(.gray60)
                 }
