@@ -8,6 +8,13 @@
 
 /* Begin PBXBuildFile section */
 		2658EE2A2A2E00FA00CF8AFA /* RealmDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2658EE292A2E00FA00CF8AFA /* RealmDataModel.swift */; };
+		2663DD3E2A2EFD11000DCC09 /* BluePrintViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2663DD3B2A2EFD11000DCC09 /* BluePrintViewModel.swift */; };
+		2663DD3F2A2EFD11000DCC09 /* BluePrintBottomSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2663DD3C2A2EFD11000DCC09 /* BluePrintBottomSheetView.swift */; };
+		2663DD402A2EFD11000DCC09 /* BluePrintView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2663DD3D2A2EFD11000DCC09 /* BluePrintView.swift */; };
+		2663DD442A2EFD65000DCC09 /* Topbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2663DD432A2EFD65000DCC09 /* Topbar.swift */; };
+		2663DD462A2EFDEE000DCC09 /* WordListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2663DD452A2EFDEE000DCC09 /* WordListView.swift */; };
+		2663DD492A2EFDFA000DCC09 /* WordListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2663DD482A2EFDFA000DCC09 /* WordListViewModel.swift */; };
+		2663DD4B2A2F043F000DCC09 /* WordLevelBadge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2663DD4A2A2F043F000DCC09 /* WordLevelBadge.swift */; };
 		267019D02A2C5212001C18B5 /* C.swift in Sources */ = {isa = PBXBuildFile; fileRef = 267019CF2A2C5212001C18B5 /* C.swift */; };
 		267019D22A2C52B5001C18B5 /* MainTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 267019D12A2C52B5001C18B5 /* MainTabBar.swift */; };
 		267019D42A2C54C6001C18B5 /* RemoteConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 267019D32A2C54C6001C18B5 /* RemoteConfig.swift */; };
@@ -47,6 +54,13 @@
 /* Begin PBXFileReference section */
 		0B35A1A16AD26E1A0855E8C8 /* Pods_YeGong.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_YeGong.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2658EE292A2E00FA00CF8AFA /* RealmDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmDataModel.swift; sourceTree = "<group>"; };
+		2663DD3B2A2EFD11000DCC09 /* BluePrintViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BluePrintViewModel.swift; sourceTree = "<group>"; };
+		2663DD3C2A2EFD11000DCC09 /* BluePrintBottomSheetView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BluePrintBottomSheetView.swift; sourceTree = "<group>"; };
+		2663DD3D2A2EFD11000DCC09 /* BluePrintView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BluePrintView.swift; sourceTree = "<group>"; };
+		2663DD432A2EFD65000DCC09 /* Topbar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Topbar.swift; sourceTree = "<group>"; };
+		2663DD452A2EFDEE000DCC09 /* WordListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordListView.swift; sourceTree = "<group>"; };
+		2663DD482A2EFDFA000DCC09 /* WordListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordListViewModel.swift; sourceTree = "<group>"; };
+		2663DD4A2A2F043F000DCC09 /* WordLevelBadge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordLevelBadge.swift; sourceTree = "<group>"; };
 		266BFAA02A2DB9A900AB640F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		267019CF2A2C5212001C18B5 /* C.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = C.swift; sourceTree = "<group>"; };
 		267019D12A2C52B5001C18B5 /* MainTabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBar.swift; sourceTree = "<group>"; };
@@ -100,6 +114,46 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2663DD322A2EF957000DCC09 /* WordList */ = {
+			isa = PBXGroup;
+			children = (
+				2663DD452A2EFDEE000DCC09 /* WordListView.swift */,
+				2663DD482A2EFDFA000DCC09 /* WordListViewModel.swift */,
+			);
+			path = WordList;
+			sourceTree = "<group>";
+		};
+		2663DD332A2EF966000DCC09 /* WordCard */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = WordCard;
+			sourceTree = "<group>";
+		};
+		2663DD342A2EF96E000DCC09 /* Setting */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Setting;
+			sourceTree = "<group>";
+		};
+		2663DD352A2EF976000DCC09 /* Quiz */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Quiz;
+			sourceTree = "<group>";
+		};
+		2663DD3A2A2EFD09000DCC09 /* BluePrint */ = {
+			isa = PBXGroup;
+			children = (
+				2663DD3D2A2EFD11000DCC09 /* BluePrintView.swift */,
+				2663DD3C2A2EFD11000DCC09 /* BluePrintBottomSheetView.swift */,
+				2663DD3B2A2EFD11000DCC09 /* BluePrintViewModel.swift */,
+			);
+			path = BluePrint;
+			sourceTree = "<group>";
+		};
 		269009DD2A2B224600653275 = {
 			isa = PBXGroup;
 			children = (
@@ -207,6 +261,11 @@
 		26900A192A2B28CD00653275 /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				2663DD3A2A2EFD09000DCC09 /* BluePrint */,
+				2663DD322A2EF957000DCC09 /* WordList */,
+				2663DD332A2EF966000DCC09 /* WordCard */,
+				2663DD352A2EF976000DCC09 /* Quiz */,
+				2663DD342A2EF96E000DCC09 /* Setting */,
 				26ED56042A2C19B7006A8810 /* Splash */,
 				26ED56052A2C19BD006A8810 /* Main */,
 				26900A1A2A2B28D000653275 /* CommonView */,
@@ -220,6 +279,8 @@
 				26900A1B2A2B28DD00653275 /* SProgress.swift */,
 				26ED56332A2C218C006A8810 /* AdView.swift */,
 				267019D12A2C52B5001C18B5 /* MainTabBar.swift */,
+				2663DD432A2EFD65000DCC09 /* Topbar.swift */,
+				2663DD4A2A2F043F000DCC09 /* WordLevelBadge.swift */,
 			);
 			path = CommonView;
 			sourceTree = "<group>";
@@ -410,15 +471,22 @@
 				269009F92A2B236900653275 /* AppCoordinator.swift in Sources */,
 				26900A162A2B267100653275 /* DataModel.swift in Sources */,
 				2658EE2A2A2E00FA00CF8AFA /* RealmDataModel.swift in Sources */,
+				2663DD3E2A2EFD11000DCC09 /* BluePrintViewModel.swift in Sources */,
 				26900A182A2B26D700653275 /* SwiftExtension.swift in Sources */,
+				2663DD462A2EFDEE000DCC09 /* WordListView.swift in Sources */,
+				2663DD492A2EFDFA000DCC09 /* WordListViewModel.swift in Sources */,
 				26900A0F2A2B25E400653275 /* SwiftUIExtension.swift in Sources */,
 				26ED56092A2C19E8006A8810 /* SplashViewModel.swift in Sources */,
 				267019D22A2C52B5001C18B5 /* MainTabBar.swift in Sources */,
+				2663DD442A2EFD65000DCC09 /* Topbar.swift in Sources */,
+				2663DD4B2A2F043F000DCC09 /* WordLevelBadge.swift in Sources */,
 				26ED560D2A2C19F1006A8810 /* MainViewModel.swift in Sources */,
 				26900A002A2B248900653275 /* SceneDelegate.swift in Sources */,
 				26900A0B2A2B25B500653275 /* AlertView.swift in Sources */,
+				2663DD402A2EFD11000DCC09 /* BluePrintView.swift in Sources */,
 				26900A132A2B263200653275 /* Defaults.swift in Sources */,
 				26900A052A2B253000653275 /* BaseViewModel.swift in Sources */,
+				2663DD3F2A2EFD11000DCC09 /* BluePrintBottomSheetView.swift in Sources */,
 				26900A082A2B257500653275 /* NetworkMonitor.swift in Sources */,
 				26ED56142A2C1A64006A8810 /* YeGong++Bundle.swift in Sources */,
 			);
@@ -579,6 +647,7 @@
 				DEVELOPMENT_ASSET_PATHS = "\"YeGong/Preview Content\"";
 				DEVELOPMENT_TEAM = 3RZRY2TK85;
 				ENABLE_PREVIEWS = YES;
+				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = "";
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = YeGong/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -612,6 +681,7 @@
 				DEVELOPMENT_ASSET_PATHS = "\"YeGong/Preview Content\"";
 				DEVELOPMENT_TEAM = 3RZRY2TK85;
 				ENABLE_PREVIEWS = YES;
+				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = "";
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = YeGong/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;

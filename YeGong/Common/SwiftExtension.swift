@@ -19,6 +19,10 @@ extension Int {
         let kr = date.string(from: timeToDate)
         return kr
     }
+    
+    func levelBadgeType() -> LevelBadgeType {
+        return LevelBadgeType(rawValue: self) ?? .lv1
+    }
 }
 
 

@@ -14,7 +14,6 @@ enum DevMode {
 
 public class C {
     static var isFirstAppStart: Bool = true
-    
     static var devMode: DevMode = .release
 }
 

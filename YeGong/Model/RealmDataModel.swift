@@ -9,29 +9,22 @@ import Foundation
 import Realm
 import RealmSwift
 
+class R {
+    static let realm: Realm = try! Realm()
+}
 
 class Voca: Object {
-    @objc dynamic var word: String
-    @objc dynamic var mean: String
-    @objc dynamic var level: Int
-    dynamic var examples: List<String>
+    @Persisted(primaryKey: true) var _id: ObjectId
+    @Persisted var word: String
+    @Persisted var mean: String
+    @Persisted var level: Int
+    @Persisted var examples: List<String>
+    @Persisted var bookmarkTime: Int? //epoch
+    @Persisted var studyTime: Int? //epoch
+    @Persisted var wrongCnt: Int
     
-    dynamic var bookmarkTime: Int? //epoch
-    dynamic var studyTime: Int? //epoch
-    @objc dynamic var wrongCnt: Int
-    
-    override required init() {
-        self.word = ""
-        self.mean = ""
-        self.level = 1
-        self.examples = List<String>()
-        
-        self.bookmarkTime = nil
-        self.studyTime = nil
-        self.wrongCnt = 0
-    }
-    
-    init(_ item: VocaCSVModel) {
+    convenience init(_ item: VocaCSVModel) {
+        self.init()
         let list = List<String>()
         item.examples.forEach {i in
             list.append(i)
@@ -44,6 +37,18 @@ class Voca: Object {
         self.bookmarkTime = nil
         self.studyTime = nil
         self.wrongCnt = 0
-        super.init()
+    }
+    
+    convenience init(id: ObjectId, word: String, mean: String, level: Int, examples: List<String>, bookmarkTime: Int?, studyTime: Int?, wrongCnt: Int
+    ) {
+        self.init()
+        self._id = id
+        self.word = word
+        self.mean = mean
+        self.level = level
+        self.examples = examples
+        self.bookmarkTime = bookmarkTime
+        self.studyTime = studyTime
+        self.wrongCnt = wrongCnt
     }
 }

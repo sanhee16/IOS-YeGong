@@ -9,7 +9,7 @@ import Foundation
 import Combine
 
 class MainViewModel: BaseViewModel {
-//    @Published var currentTab: MainMenuType = .map
+    @Published var currentTab: MainMenuType = .wordlist
     @Published var isShowAds: Bool = false
     
     override init(_ coordinator: AppCoordinator) {
@@ -30,7 +30,7 @@ class MainViewModel: BaseViewModel {
         
     }
     
-//    func onClickTab(_ tab: MainMenuType) {
-//        self.currentTab = tab
-//    }
+    func onClickTab(_ tab: MainMenuType) {
+        self.currentTab = tab
+    }
 }

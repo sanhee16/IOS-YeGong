@@ -18,8 +18,9 @@ import RealmSwift
 class SplashViewModel: BaseViewModel {
     private var timerRepeat: Timer?
     private let realm: Realm
+    
     override init(_ coordinator: AppCoordinator) {
-        self.realm = try! Realm()
+        self.realm = R.realm
         super.init(coordinator)
     }
     
@@ -33,44 +34,6 @@ class SplashViewModel: BaseViewModel {
             } else {
                 if self.realm.objects(Voca.self).isEmpty {
                     self.createVocaDB()
-                } else {
-                    let list = self.realm.objects(Voca.self)
-                    print("------VOCA------")
-                    print("cnt: \(list.count)")
-                    print("\(list[0])")
-                    print("\(list[1])")
-                    print("\(list[2])")
-                    print("\(list[3])")
-                    print("\(list[4])")
-                    print("\(list[5])")
-                    
-                    print("\(list[200])")
-                    print("\(list[201])")
-                    print("\(list[202])")
-                    print("\(list[203])")
-                    print("\(list[204])")
-                    print("\(list[205])")
-                    
-                    print("\(list[400])")
-                    print("\(list[401])")
-                    print("\(list[402])")
-                    print("\(list[403])")
-                    print("\(list[404])")
-                    print("\(list[405])")
-                    
-                    print("\(list[700])")
-                    print("\(list[701])")
-                    print("\(list[702])")
-                    print("\(list[703])")
-                    print("\(list[704])")
-                    print("\(list[705])")
-                    
-                    print("\(list[900])")
-                    print("\(list[901])")
-                    print("\(list[902])")
-                    print("\(list[903])")
-                    print("\(list[904])")
-                    print("\(list[905])")
                 }
                 self.onStartSplashTimer()
             }
@@ -142,8 +105,9 @@ class SplashViewModel: BaseViewModel {
         }
     }
     
-    func onStartSplashTimer() { //2초 후에 메인 시작
-        DispatchQueue.main.asyncAfter(deadline: .now() + 2) { [weak self] in
+    func onStartSplashTimer() {
+        //TODO: 2초 후에 메인 시작 => 2로 변경
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0) { [weak self] in
             self?.coordinator?.presentMain()
         }
     }

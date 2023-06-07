@@ -44,6 +44,10 @@ class Util {
         let res: UInt8 = isOn ? (settingFlag | flag.option) : (settingFlag & (~flag.option))
         Defaults.settingFlag = res
     }
+    
+    static func currentTime() -> Int {
+        return Int(NSDate().timeIntervalSince1970)
+    }
 }
 
 class UserLocale {
