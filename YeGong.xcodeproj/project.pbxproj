@@ -35,6 +35,8 @@
 		26900A162A2B267100653275 /* DataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26900A152A2B267100653275 /* DataModel.swift */; };
 		26900A182A2B26D700653275 /* SwiftExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26900A172A2B26D700653275 /* SwiftExtension.swift */; };
 		26900A1C2A2B28DD00653275 /* SProgress.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26900A1B2A2B28DD00653275 /* SProgress.swift */; };
+		26959BD12A32EAD800C4DE74 /* WordCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26959BD02A32EAD800C4DE74 /* WordCardView.swift */; };
+		26959BD32A32EADE00C4DE74 /* WordCardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26959BD22A32EADE00C4DE74 /* WordCardViewModel.swift */; };
 		2699A0E02A2E42F800C27F68 /* Voca.csv in Resources */ = {isa = PBXBuildFile; fileRef = 2699A0DF2A2E42F800C27F68 /* Voca.csv */; };
 		26ED56012A2C0EAB006A8810 /* loading_circular.json in Resources */ = {isa = PBXBuildFile; fileRef = 26ED55FE2A2C0EAA006A8810 /* loading_circular.json */; };
 		26ED56022A2C0EAB006A8810 /* loading.json in Resources */ = {isa = PBXBuildFile; fileRef = 26ED55FF2A2C0EAB006A8810 /* loading.json */; };
@@ -83,6 +85,8 @@
 		26900A152A2B267100653275 /* DataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataModel.swift; sourceTree = "<group>"; };
 		26900A172A2B26D700653275 /* SwiftExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftExtension.swift; sourceTree = "<group>"; };
 		26900A1B2A2B28DD00653275 /* SProgress.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SProgress.swift; sourceTree = "<group>"; };
+		26959BD02A32EAD800C4DE74 /* WordCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordCardView.swift; sourceTree = "<group>"; };
+		26959BD22A32EADE00C4DE74 /* WordCardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordCardViewModel.swift; sourceTree = "<group>"; };
 		2699A0DF2A2E42F800C27F68 /* Voca.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Voca.csv; sourceTree = "<group>"; };
 		26ED55FE2A2C0EAA006A8810 /* loading_circular.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = loading_circular.json; sourceTree = "<group>"; };
 		26ED55FF2A2C0EAB006A8810 /* loading.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = loading.json; sourceTree = "<group>"; };
@@ -126,6 +130,8 @@
 		2663DD332A2EF966000DCC09 /* WordCard */ = {
 			isa = PBXGroup;
 			children = (
+				26959BD02A32EAD800C4DE74 /* WordCardView.swift */,
+				26959BD22A32EADE00C4DE74 /* WordCardViewModel.swift */,
 			);
 			path = WordCard;
 			sourceTree = "<group>";
@@ -475,6 +481,7 @@
 				26900A182A2B26D700653275 /* SwiftExtension.swift in Sources */,
 				2663DD462A2EFDEE000DCC09 /* WordListView.swift in Sources */,
 				2663DD492A2EFDFA000DCC09 /* WordListViewModel.swift in Sources */,
+				26959BD32A32EADE00C4DE74 /* WordCardViewModel.swift in Sources */,
 				26900A0F2A2B25E400653275 /* SwiftUIExtension.swift in Sources */,
 				26ED56092A2C19E8006A8810 /* SplashViewModel.swift in Sources */,
 				267019D22A2C52B5001C18B5 /* MainTabBar.swift in Sources */,
@@ -484,6 +491,7 @@
 				26900A002A2B248900653275 /* SceneDelegate.swift in Sources */,
 				26900A0B2A2B25B500653275 /* AlertView.swift in Sources */,
 				2663DD402A2EFD11000DCC09 /* BluePrintView.swift in Sources */,
+				26959BD12A32EAD800C4DE74 /* WordCardView.swift in Sources */,
 				26900A132A2B263200653275 /* Defaults.swift in Sources */,
 				26900A052A2B253000653275 /* BaseViewModel.swift in Sources */,
 				2663DD3F2A2EFD11000DCC09 /* BluePrintBottomSheetView.swift in Sources */,

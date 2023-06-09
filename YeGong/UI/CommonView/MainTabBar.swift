@@ -15,12 +15,14 @@ public struct MainMenuElements {
 
 public enum MainMenuType: Int, Equatable {
     case wordlist
+    case wordcard
 //    case bookmark
 //    case setting
     
     var onImage: String {
         switch self {
         case .wordlist: return "list_on"
+        case .wordcard: return "list_on"
 //        case .bookmark: return "favorite_off"
 //        case .setting: return "setting_on"
         }
@@ -29,6 +31,7 @@ public enum MainMenuType: Int, Equatable {
     var offImage: String {
         switch self {
         case .wordlist: return "list_off"
+        case .wordcard: return "list_off"
 //        case .bookmark: return "favorite_off"
 //        case .setting: return "setting_off"
         }
@@ -37,6 +40,7 @@ public enum MainMenuType: Int, Equatable {
     var text: String {
         switch self {
         case .wordlist: return "wordlist".localized()
+        case .wordcard: return "wordcard".localized()
 //        case .bookmark: return "bookmark".localized()
 //        case .setting: return "setting".localized()
         }
@@ -45,6 +49,7 @@ public enum MainMenuType: Int, Equatable {
     var viewName: String {
         switch self {
         case .wordlist: return String(describing: WordListView.self)
+        case .wordcard: return String(describing: WordCardView.self)
 //        case .bookmark: return String(describing: WordListView.self)
 //        case .setting: return String(describing: TravelListView.self)
         }
@@ -58,7 +63,7 @@ public struct MainTabBar: View {
     private let ICON_SIZE: CGFloat = 38.0
     private let ITEM_WIDTH: CGFloat = UIScreen.main.bounds.width / 4
     private let ITEM_HEIGHT: CGFloat = 60.0
-    private let list: [MainMenuType] = [.wordlist]
+    private let list: [MainMenuType] = [.wordlist, .wordcard]
     
     init(geometry: GeometryProxy, current: MainMenuType, onClick: ((MainMenuType)->())?) {
         self.geometry = geometry
@@ -89,6 +94,7 @@ public struct MainTabBar: View {
         .onTapGesture {
             switch item {
             case .wordlist: self.onClick?(.wordlist)
+            case .wordcard: self.onClick?(.wordcard)
             }
         }
         .frame(width: ITEM_WIDTH, height: ITEM_HEIGHT, alignment: .center)

@@ -8,4 +8,5 @@ target 'YeGong' do
   pod 'Alamofire'
   pod 'lottie-ios'
   pod 'RealmSwift'
+  pod 'SwiftUIPager'
 end

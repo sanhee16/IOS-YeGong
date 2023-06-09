@@ -2,17 +2,19 @@ PODS:
   - Alamofire (5.7.1)
   - FittedSheets (2.5.3)
   - lottie-ios (4.2.0)
-  - Realm (10.40.0):
-    - Realm/Headers (= 10.40.0)
-  - Realm/Headers (10.40.0)
-  - RealmSwift (10.40.0):
-    - Realm (= 10.40.0)
+  - Realm (10.40.1):
+    - Realm/Headers (= 10.40.1)
+  - Realm/Headers (10.40.1)
+  - RealmSwift (10.40.1):
+    - Realm (= 10.40.1)
+  - SwiftUIPager (2.5.0)
 
 DEPENDENCIES:
   - Alamofire
   - FittedSheets
   - lottie-ios
   - RealmSwift
+  - SwiftUIPager
 
 SPEC REPOS:
   trunk:
@@ -21,14 +23,16 @@ SPEC REPOS:
     - lottie-ios
     - Realm
     - RealmSwift
+    - SwiftUIPager
 
 SPEC CHECKSUMS:
   Alamofire: 0123a34370cb170936ae79a8df46cc62b2edeb88
   FittedSheets: c22df4c06036515f247951fa174912e8a65c8ce4
   lottie-ios: 809ecf2d460ed650a6aed7aa88b2ec45fab4779c
-  Realm: 67e2bc963e693a787961bd81d0594f2410615d9e
-  RealmSwift: 39622fdcd18d54e0ba49a7d31e9662404595e998
+  Realm: 6cfea258485b926bdb3da9d8ebc649959439b85e
+  RealmSwift: 27def816591b3ab4f00a0085493aa82d9a5e7b7f
+  SwiftUIPager: b314d8923bef0bde743c904bb74fcc7a05fd3422
 
-PODFILE CHECKSUM: addf5c6c0090c02942d0f3dcc85f3b5cb83085b2
+PODFILE CHECKSUM: 9bf993cf2b260c729e06308f9f3fec0cd2505d09
 
 COCOAPODS: 1.12.1
