@@ -23,12 +23,6 @@ class WordListViewModel: BaseViewModel {
         self.list = []
         self.realm = R.realm
         super.init(coordinator)
-        
-        Defaults.studyFilter.forEach { i in
-            if let type = LevelBadgeType(rawValue: i) {
-                self.filters.append(type)
-            }
-        }
     }
     
     func onAppear() {
@@ -41,9 +35,15 @@ class WordListViewModel: BaseViewModel {
     }
     
     func getVoca() {
+        Defaults.studyFilter.forEach { i in
+            if let type = LevelBadgeType(rawValue: i) {
+                self.filters.append(type)
+            }
+        }
+
         self.list.removeAll()
         self.list = Array(self.realm.objects(Voca.self).filter({ voca in
-            self.filters.contains { $0.rawValue == voca.level }
+            self.filters.contains { $0.rawValue == voca.level || voca.type == 1 }
         }))
         
         if let idx = self.list.firstIndex(where: { $0._id.stringValue == Defaults.bookmarkId }) {

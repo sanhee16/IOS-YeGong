@@ -27,9 +27,6 @@ struct WordListView: View {
             ScrollViewReader { scrollProxy in
                 VStack(alignment: .leading, spacing: 0) {
                     Topbar("WordList")
-                        .onTapGesture {
-                            scrollProxy.scrollTo($vm.bookmarkIdx.wrappedValue, anchor: .top)
-                        }
                     /*
                      필터링 기능: 레벨
                      단어 가리기 or 한글 가리기
@@ -37,21 +34,22 @@ struct WordListView: View {
                     
                     HStack(alignment: .center, spacing: 0) {
                         Spacer()
-                        Text("레벨:")
-                            .font(.kr12r)
-                            .foregroundColor(.gray90)
-                            .padding(.trailing, 3)
-                        ForEach(self.allTypes.indices, id: \.self) { idx in
-                            filterItem(self.allTypes[idx])
-                                .padding(.leading, 2)
-                                .onTapGesture {
-                                    vm.onClickFilter(self.allTypes[idx])
-                                }
-                        }
-                        
-                        Divider()
-                            .frame(height: 20, alignment: .center)
-                            .padding(6)
+                        //TODO: 레벨 부분은 설정으로 빼야할 것 같음 ㅠ
+//                        Text("레벨:")
+//                            .font(.kr12r)
+//                            .foregroundColor(.gray90)
+//                            .padding(.trailing, 3)
+//                        ForEach(self.allTypes.indices, id: \.self) { idx in
+//                            filterItem(self.allTypes[idx])
+//                                .padding(.leading, 2)
+//                                .onTapGesture {
+//                                    vm.onClickFilter(self.allTypes[idx])
+//                                }
+//                        }
+//
+//                        Divider()
+//                            .frame(height: 20, alignment: .center)
+//                            .padding(6)
                         
                         Text("표출:")
                             .font(.kr12r)
@@ -74,13 +72,21 @@ struct WordListView: View {
                     ScrollView(.vertical, showsIndicators: true) {
                         VStack(spacing: 0) {
                             ForEach($vm.list.wrappedValue.indices, id: \.self) { idx in
-                                wordItem($vm.list.wrappedValue[idx], idx: idx)
-                                    .id(idx)
+                                switch $vm.list.wrappedValue[idx].type.getVocaType() {
+                                case VocaType.group:
+                                    groupItem($vm.list.wrappedValue[idx].word)
+                                        .id(idx)
+                                case VocaType.word:
+                                    wordItem($vm.list.wrappedValue[idx], idx: idx)
+                                        .id(idx)
+                                default:
+                                    EmptyView()
+                                }
                                 Divider()
                                     .padding(0)
                             }
                             .onAppear {
-                                scrollProxy.scrollTo($vm.bookmarkIdx.wrappedValue, anchor: .top)
+                                scrollProxy.scrollTo(0, anchor: .top)
                             }
                         }
                     }
@@ -94,6 +100,17 @@ struct WordListView: View {
                 }
             }
         }
+    }
+    
+    private func groupItem(_ text: String) -> some View {
+        return HStack(alignment: .center, spacing: 0) {
+            Text(text)
+                .font(.kr13b)
+                .foregroundColor(.gray90)
+                .padding([.leading, .top, .bottom], 10)
+            Spacer()
+        }
+        .background(.mint)
     }
     
     private func visibleItem(_ text: String, isVisible: Bool) -> some View {
@@ -125,14 +142,14 @@ struct WordListView: View {
     
     private func wordItem(_ item: Voca, idx: Int) -> some View {
         return ZStack(alignment: .topLeading) {
-            if idx == $vm.bookmarkIdx.wrappedValue {
-                Image("bookmark")
-                    .resizable()
-                    .scaledToFit()
-                    .frame(width: 24, height: 30, alignment: .center)
-                    .opacity(0.5)
-                    .zIndex(1)
-            }
+//            if idx == $vm.bookmarkIdx.wrappedValue {
+//                Image("bookmark")
+//                    .resizable()
+//                    .scaledToFit()
+//                    .frame(width: 24, height: 30, alignment: .center)
+//                    .opacity(0.5)
+//                    .zIndex(1)
+//            }
             HStack(alignment: .center, spacing: 0) {
                 VStack(alignment: .leading, spacing: 8) {
                     HStack(alignment: .center, spacing: 4) {
@@ -157,8 +174,5 @@ struct WordListView: View {
             .padding(EdgeInsets(top: 6, leading: 8, bottom: 6, trailing: 8))
         }
         .contentShape(Rectangle())
-        .onTapGesture(count: 2, perform: {
-            vm.onLongClick(item, idx: idx)
-        })
     }
 }

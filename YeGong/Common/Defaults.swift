@@ -43,6 +43,9 @@ class Defaults {
     @UserDefault<Int>(key: "STUDY_MODE", defaultValue: 0)
     public static var studyMode
     
+    @UserDefault<[String]>(key: "GROUP_NAME_LIST", defaultValue: [])
+    public static var groupNameList
+    
     
     //MARK: Setting
     /*

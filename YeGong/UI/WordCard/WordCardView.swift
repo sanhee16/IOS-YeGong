@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import SwiftUIPager
 
 struct WordCardView: View {
     typealias VM = WordCardViewModel

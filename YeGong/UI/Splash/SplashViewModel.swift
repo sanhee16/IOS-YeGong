@@ -34,6 +34,12 @@ class SplashViewModel: BaseViewModel {
             } else {
                 if self.realm.objects(Voca.self).isEmpty {
                     self.createVocaDB()
+                } else {
+                    print("COUNT: \(self.realm.objects(Voca.self).count)")
+                    print("[0]: \(self.realm.objects(Voca.self)[0])")
+                    print("[1]: \(self.realm.objects(Voca.self)[1])")
+                    print("[2]: \(self.realm.objects(Voca.self)[2])")
+                    print("[3]: \(self.realm.objects(Voca.self)[3])")
                 }
                 self.onStartSplashTimer()
             }
@@ -71,6 +77,30 @@ class SplashViewModel: BaseViewModel {
         }
         if !vocaList.isEmpty {
             try! realm.write {
+                var cnt: Int = 0
+                var day: Int = 1
+                var group: String = "Day \(day)"
+                var diff = Voca(VocaCSVModel([group, "", "0", ""]))
+                diff.type = VocaType.group.rawValue
+                realm.add(diff)
+                Defaults.groupNameList.append(group)
+                for i in vocaList {
+                    if cnt < 20 {
+                        cnt += 1
+                    } else {
+                        cnt = 0
+                        day += 1
+                        group = "Day \(day)"
+                        Defaults.groupNameList.append(group)
+                        var diff = Voca(VocaCSVModel([group, "", "0", ""]))
+                        diff.type = VocaType.group.rawValue
+                        realm.add(diff)
+                    }
+                    var value = i
+                    i.type = VocaType.word.rawValue
+                    value.group = group
+                    realm.add(i)
+                }
                 realm.add(vocaList)
             }
         }
