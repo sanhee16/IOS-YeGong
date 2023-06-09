@@ -43,7 +43,7 @@ class WordListViewModel: BaseViewModel {
 
         self.list.removeAll()
         self.list = Array(self.realm.objects(Voca.self).filter({ voca in
-            self.filters.contains { $0.rawValue == voca.level || voca.type == 1 }
+            self.filters.contains { $0.rawValue == voca.level }
         }))
         
         if let idx = self.list.firstIndex(where: { $0._id.stringValue == Defaults.bookmarkId }) {
@@ -55,15 +55,15 @@ class WordListViewModel: BaseViewModel {
         }
     }
     
-    func onLongClick(_ item: Voca, idx: Int) {
-        if Defaults.bookmarkId == item._id.stringValue {
-            Defaults.bookmarkId = ""
-            self.bookmarkIdx = 0
-        } else {
-            Defaults.bookmarkId = item._id.stringValue
-            self.bookmarkIdx = idx
-        }
-    }
+//    func onLongClick(_ item: Voca, idx: Int) {
+//        if Defaults.bookmarkId == item._id.stringValue {
+//            Defaults.bookmarkId = ""
+//            self.bookmarkIdx = 0
+//        } else {
+//            Defaults.bookmarkId = item._id.stringValue
+//            self.bookmarkIdx = idx
+//        }
+//    }
     
     func onClickFilter(_ type: LevelBadgeType) {
         if let idx = self.filters.firstIndex(where: { $0 == type }) {

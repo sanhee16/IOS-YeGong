@@ -72,16 +72,21 @@ struct WordListView: View {
                     ScrollView(.vertical, showsIndicators: true) {
                         VStack(spacing: 0) {
                             ForEach($vm.list.wrappedValue.indices, id: \.self) { idx in
-                                switch $vm.list.wrappedValue[idx].type.getVocaType() {
-                                case VocaType.group:
-                                    groupItem($vm.list.wrappedValue[idx].word)
-                                        .id(idx)
-                                case VocaType.word:
-                                    wordItem($vm.list.wrappedValue[idx], idx: idx)
-                                        .id(idx)
-                                default:
-                                    EmptyView()
-                                }
+                                
+                                wordItem($vm.list.wrappedValue[idx], idx: idx)
+                                    .id(idx)
+//                                if let type = $vm.list.wrappedValue[idx].type.getVocaType() {
+//                                    switch type {
+//                                    case VocaType.group:
+//                                        groupItem($vm.list.wrappedValue[idx].word)
+//                                            .id(idx)
+//                                    case VocaType.word:
+//                                        wordItem($vm.list.wrappedValue[idx], idx: idx)
+//                                            .id(idx)
+//                                    default:
+//                                        EmptyView()
+//                                    }
+//                                }
                                 Divider()
                                     .padding(0)
                             }

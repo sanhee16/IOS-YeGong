@@ -75,33 +75,35 @@ class SplashViewModel: BaseViewModel {
         let vocaList = list.map { cvsModel -> Voca in
             return Voca(cvsModel)
         }
+        
+        for i in 1...(vocaList.count/20){
+            try! realm.write {
+                realm.add(VocaGroup("Day \(i)"))
+            }
+        }
+        
+        let groups = Array(realm.objects(VocaGroup.self))
         if !vocaList.isEmpty {
             try! realm.write {
-                var cnt: Int = 0
-                var day: Int = 1
-                var group: String = "Day \(day)"
-                var diff = Voca(VocaCSVModel([group, "", "0", ""]))
-                diff.type = VocaType.group.rawValue
-                realm.add(diff)
-                Defaults.groupNameList.append(group)
-                for i in vocaList {
-                    if cnt < 20 {
+                var cnt = 0
+                var lastGroupIdx = 0
+                var lastGroup: VocaGroup = groups[lastGroupIdx]
+                
+                vocaList.forEach { voca in
+                    voca.groupId = lastGroup._id
+                    realm.add(voca)
+                    if cnt < 19 {
                         cnt += 1
                     } else {
-                        cnt = 0
-                        day += 1
-                        group = "Day \(day)"
-                        Defaults.groupNameList.append(group)
-                        var diff = Voca(VocaCSVModel([group, "", "0", ""]))
-                        diff.type = VocaType.group.rawValue
-                        realm.add(diff)
+                        if lastGroupIdx == groups.count - 1 {
+                            cnt += 1
+                        } else {
+                            cnt = 0
+                            lastGroupIdx += 1
+                            lastGroup = groups[lastGroupIdx]
+                        }
                     }
-                    var value = i
-                    i.type = VocaType.word.rawValue
-                    value.group = group
-                    realm.add(i)
                 }
-                realm.add(vocaList)
             }
         }
     }

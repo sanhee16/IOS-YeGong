@@ -23,10 +23,6 @@ extension Int {
     func levelBadgeType() -> LevelBadgeType {
         return LevelBadgeType(rawValue: self) ?? .lv1
     }
-    
-    func getVocaType() -> VocaType? {
-        return VocaType(rawValue: self)
-    }
 }
 
 

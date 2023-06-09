@@ -18,10 +18,18 @@ struct WordCardView: View {
     var body: some View {
         GeometryReader { geometry in
             VStack(alignment: .leading, spacing: 0) {
-                Topbar("WordCard", type: .back) {
-                    vm.onClose()
+                Topbar("WordCard")
+                ScrollView(.vertical, showsIndicators: true) {
+                    LazyVGrid(columns: [
+                        GridItem(alignment: .center),
+                        GridItem(alignment: .center)
+                    ]) {
+                        ForEach($vm.groupItems.wrappedValue.indices, id: \.self) { idx in
+                            cardItem(geometry, groupItem: $vm.groupItems.wrappedValue[idx])
+                        }
+                    }
+                    .padding([.leading, .trailing], 16)
                 }
-                
             }
             .padding(EdgeInsets(top: safeTop, leading: 0, bottom: safeBottom, trailing: 0))
             .edgesIgnoringSafeArea(.all)
@@ -30,5 +38,23 @@ struct WordCardView: View {
         .onAppear {
             vm.onAppear()
         }
+    }
+    
+    private func cardItem(_ geometry: GeometryProxy, groupItem: WordCardGroupItem) -> some View {
+        return VStack(alignment: .center, spacing: 0) {
+            Text(groupItem.group.text)
+                .font(.kr14b)
+                .foregroundColor(.gray90)
+            
+            Text("voca: \(groupItem.cnt)")
+                .font(.kr10b)
+                .foregroundColor(.gray60)
+                .padding(.top, 6)
+        }
+        .frame(width: (geometry.size.width - 16 * 2 - 20)/2, height: 100, alignment: .center)
+        .background(
+            RoundedRectangle(cornerRadius: 10)
+                .foregroundColor(.mint)
+        )
     }
 }
