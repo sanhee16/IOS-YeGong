@@ -37,6 +37,10 @@ struct WordListView: View {
                     
                     HStack(alignment: .center, spacing: 0) {
                         Spacer()
+                        Text("레벨:")
+                            .font(.kr12r)
+                            .foregroundColor(.gray90)
+                            .padding(.trailing, 3)
                         ForEach(self.allTypes.indices, id: \.self) { idx in
                             filterItem(self.allTypes[idx])
                                 .padding(.leading, 2)
@@ -47,8 +51,12 @@ struct WordListView: View {
                         
                         Divider()
                             .frame(height: 20, alignment: .center)
-                            .padding(4)
+                            .padding(6)
                         
+                        Text("표출:")
+                            .font(.kr12r)
+                            .foregroundColor(.gray90)
+                            .padding(.trailing, 3)
                         visibleItem("영어", isVisible: $vm.isVisibleWord.wrappedValue)
                             .onTapGesture {
                                 $vm.isVisibleWord.wrappedValue = !$vm.isVisibleWord.wrappedValue
