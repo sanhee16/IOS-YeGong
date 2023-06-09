@@ -64,4 +64,8 @@ class WordCardViewModel: BaseViewModel {
         })
         
     }
+    
+    func onClickGroup(_ group: WordCardGroupItem) {
+        self.coordinator?.presentCardView(group.group)
+    }
 }

@@ -26,6 +26,9 @@ struct WordCardView: View {
                     ]) {
                         ForEach($vm.groupItems.wrappedValue.indices, id: \.self) { idx in
                             cardItem(geometry, groupItem: $vm.groupItems.wrappedValue[idx])
+                                .onTapGesture {
+                                    vm.onClickGroup($vm.groupItems.wrappedValue[idx])
+                                }
                         }
                     }
                     .padding([.leading, .trailing], 16)

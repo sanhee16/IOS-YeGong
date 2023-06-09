@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		2658EE2A2A2E00FA00CF8AFA /* RealmDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2658EE292A2E00FA00CF8AFA /* RealmDataModel.swift */; };
+		265D2D212A3366EC002624FD /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 265D2D202A3366EC002624FD /* CardView.swift */; };
+		265D2D232A3366F2002624FD /* CardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 265D2D222A3366F2002624FD /* CardViewModel.swift */; };
 		2663DD3E2A2EFD11000DCC09 /* BluePrintViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2663DD3B2A2EFD11000DCC09 /* BluePrintViewModel.swift */; };
 		2663DD3F2A2EFD11000DCC09 /* BluePrintBottomSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2663DD3C2A2EFD11000DCC09 /* BluePrintBottomSheetView.swift */; };
 		2663DD402A2EFD11000DCC09 /* BluePrintView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2663DD3D2A2EFD11000DCC09 /* BluePrintView.swift */; };
@@ -56,6 +58,8 @@
 /* Begin PBXFileReference section */
 		0B35A1A16AD26E1A0855E8C8 /* Pods_YeGong.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_YeGong.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2658EE292A2E00FA00CF8AFA /* RealmDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmDataModel.swift; sourceTree = "<group>"; };
+		265D2D202A3366EC002624FD /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
+		265D2D222A3366F2002624FD /* CardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardViewModel.swift; sourceTree = "<group>"; };
 		2663DD3B2A2EFD11000DCC09 /* BluePrintViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BluePrintViewModel.swift; sourceTree = "<group>"; };
 		2663DD3C2A2EFD11000DCC09 /* BluePrintBottomSheetView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BluePrintBottomSheetView.swift; sourceTree = "<group>"; };
 		2663DD3D2A2EFD11000DCC09 /* BluePrintView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BluePrintView.swift; sourceTree = "<group>"; };
@@ -118,6 +122,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		265D2D1F2A3366E2002624FD /* Cards */ = {
+			isa = PBXGroup;
+			children = (
+				265D2D202A3366EC002624FD /* CardView.swift */,
+				265D2D222A3366F2002624FD /* CardViewModel.swift */,
+			);
+			path = Cards;
+			sourceTree = "<group>";
+		};
 		2663DD322A2EF957000DCC09 /* WordList */ = {
 			isa = PBXGroup;
 			children = (
@@ -130,6 +143,7 @@
 		2663DD332A2EF966000DCC09 /* WordCard */ = {
 			isa = PBXGroup;
 			children = (
+				265D2D1F2A3366E2002624FD /* Cards */,
 				26959BD02A32EAD800C4DE74 /* WordCardView.swift */,
 				26959BD22A32EADE00C4DE74 /* WordCardViewModel.swift */,
 			);
@@ -471,12 +485,14 @@
 				26900A032A2B252A00653275 /* BaseViewController.swift in Sources */,
 				26900A1C2A2B28DD00653275 /* SProgress.swift in Sources */,
 				267019D42A2C54C6001C18B5 /* RemoteConfig.swift in Sources */,
+				265D2D232A3366F2002624FD /* CardViewModel.swift in Sources */,
 				269009FE2A2B248200653275 /* AppDelegate.swift in Sources */,
 				269009FB2A2B238300653275 /* Coordinator.swift in Sources */,
 				26900A0D2A2B25BC00653275 /* AlertViewModel.swift in Sources */,
 				269009F92A2B236900653275 /* AppCoordinator.swift in Sources */,
 				26900A162A2B267100653275 /* DataModel.swift in Sources */,
 				2658EE2A2A2E00FA00CF8AFA /* RealmDataModel.swift in Sources */,
+				265D2D212A3366EC002624FD /* CardView.swift in Sources */,
 				2663DD3E2A2EFD11000DCC09 /* BluePrintViewModel.swift in Sources */,
 				26900A182A2B26D700653275 /* SwiftExtension.swift in Sources */,
 				2663DD462A2EFDEE000DCC09 /* WordListView.swift in Sources */,
