@@ -60,6 +60,11 @@ class AppCoordinator: Coordinator, Terminatable {
         self.present(vc, animated: true)
     }
     
+    func presentQuizView(_ group: VocaGroup) {
+        let vc = QuizView.vc(self, group: group)
+        self.present(vc, animated: true)
+    }
+    
     func presentAlertView(_ type: AlertType, title: String?, description: String?, callback: ((Bool) -> ())?) {
         let vc = AlertView.vc(self, type: type, title: title, description: description, callback: callback)
         self.present(vc, animated: false)

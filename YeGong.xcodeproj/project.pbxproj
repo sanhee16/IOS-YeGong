@@ -10,6 +10,8 @@
 		2658EE2A2A2E00FA00CF8AFA /* RealmDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2658EE292A2E00FA00CF8AFA /* RealmDataModel.swift */; };
 		265D2D212A3366EC002624FD /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 265D2D202A3366EC002624FD /* CardView.swift */; };
 		265D2D232A3366F2002624FD /* CardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 265D2D222A3366F2002624FD /* CardViewModel.swift */; };
+		265D2D252A337830002624FD /* QuizView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 265D2D242A337830002624FD /* QuizView.swift */; };
+		265D2D272A337834002624FD /* QuizViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 265D2D262A337834002624FD /* QuizViewModel.swift */; };
 		2663DD3E2A2EFD11000DCC09 /* BluePrintViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2663DD3B2A2EFD11000DCC09 /* BluePrintViewModel.swift */; };
 		2663DD3F2A2EFD11000DCC09 /* BluePrintBottomSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2663DD3C2A2EFD11000DCC09 /* BluePrintBottomSheetView.swift */; };
 		2663DD402A2EFD11000DCC09 /* BluePrintView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2663DD3D2A2EFD11000DCC09 /* BluePrintView.swift */; };
@@ -60,6 +62,8 @@
 		2658EE292A2E00FA00CF8AFA /* RealmDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmDataModel.swift; sourceTree = "<group>"; };
 		265D2D202A3366EC002624FD /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
 		265D2D222A3366F2002624FD /* CardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardViewModel.swift; sourceTree = "<group>"; };
+		265D2D242A337830002624FD /* QuizView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizView.swift; sourceTree = "<group>"; };
+		265D2D262A337834002624FD /* QuizViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizViewModel.swift; sourceTree = "<group>"; };
 		2663DD3B2A2EFD11000DCC09 /* BluePrintViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BluePrintViewModel.swift; sourceTree = "<group>"; };
 		2663DD3C2A2EFD11000DCC09 /* BluePrintBottomSheetView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BluePrintBottomSheetView.swift; sourceTree = "<group>"; };
 		2663DD3D2A2EFD11000DCC09 /* BluePrintView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BluePrintView.swift; sourceTree = "<group>"; };
@@ -160,6 +164,8 @@
 		2663DD352A2EF976000DCC09 /* Quiz */ = {
 			isa = PBXGroup;
 			children = (
+				265D2D242A337830002624FD /* QuizView.swift */,
+				265D2D262A337834002624FD /* QuizViewModel.swift */,
 			);
 			path = Quiz;
 			sourceTree = "<group>";
@@ -499,10 +505,12 @@
 				2663DD492A2EFDFA000DCC09 /* WordListViewModel.swift in Sources */,
 				26959BD32A32EADE00C4DE74 /* WordCardViewModel.swift in Sources */,
 				26900A0F2A2B25E400653275 /* SwiftUIExtension.swift in Sources */,
+				265D2D252A337830002624FD /* QuizView.swift in Sources */,
 				26ED56092A2C19E8006A8810 /* SplashViewModel.swift in Sources */,
 				267019D22A2C52B5001C18B5 /* MainTabBar.swift in Sources */,
 				2663DD442A2EFD65000DCC09 /* Topbar.swift in Sources */,
 				2663DD4B2A2F043F000DCC09 /* WordLevelBadge.swift in Sources */,
+				265D2D272A337834002624FD /* QuizViewModel.swift in Sources */,
 				26ED560D2A2C19F1006A8810 /* MainViewModel.swift in Sources */,
 				26900A002A2B248900653275 /* SceneDelegate.swift in Sources */,
 				26900A0B2A2B25B500653275 /* AlertView.swift in Sources */,

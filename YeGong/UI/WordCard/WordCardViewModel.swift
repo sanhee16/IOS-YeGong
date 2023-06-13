@@ -65,7 +65,11 @@ class WordCardViewModel: BaseViewModel {
         
     }
     
-    func onClickGroup(_ group: WordCardGroupItem) {
+    func onClickStudy(_ group: WordCardGroupItem) {
         self.coordinator?.presentCardView(group.group)
+    }
+    
+    func onClickQuiz(_ group: WordCardGroupItem) {
+        self.coordinator?.presentQuizView(group.group)
     }
 }

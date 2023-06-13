@@ -26,9 +26,6 @@ struct WordCardView: View {
                     ]) {
                         ForEach($vm.groupItems.wrappedValue.indices, id: \.self) { idx in
                             cardItem(geometry, groupItem: $vm.groupItems.wrappedValue[idx])
-                                .onTapGesture {
-                                    vm.onClickGroup($vm.groupItems.wrappedValue[idx])
-                                }
                         }
                     }
                     .padding([.leading, .trailing], 16)
@@ -53,8 +50,35 @@ struct WordCardView: View {
                 .font(.kr10b)
                 .foregroundColor(.gray60)
                 .padding(.top, 6)
+            
+            HStack(alignment: .center, spacing: 0) {
+                Text("퀴즈")
+                    .font(.kr12b)
+                    .foregroundColor(.gray90)
+                    .frame(width: (geometry.size.width - 16 * 2 - 20)/4, height: 40, alignment: .center)
+                    .background(
+                        RoundedRectangle(cornerRadius: 8)
+                            .foregroundColor(.gray30)
+                    )
+                    .onTapGesture {
+                        vm.onClickQuiz(groupItem)
+                    }
+                Text("학습")
+                    .font(.kr12b)
+                    .foregroundColor(.gray90)
+                    .frame(width: (geometry.size.width - 16 * 2 - 20)/4, height: 40, alignment: .center)
+                    .background(
+                        RoundedRectangle(cornerRadius: 10)
+                            .foregroundColor(.gray30)
+                    )
+                    .onTapGesture {
+                        vm.onClickStudy(groupItem)
+                    }
+            }
+            .padding(.top, 20)
         }
-        .frame(width: (geometry.size.width - 16 * 2 - 20)/2, height: 100, alignment: .center)
+        .padding([.top, .bottom], 20)
+        .frame(width: (geometry.size.width - 16 * 2 - 20)/2, alignment: .center)
         .background(
             RoundedRectangle(cornerRadius: 10)
                 .foregroundColor(.mint)
