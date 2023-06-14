@@ -32,7 +32,7 @@ struct GroupView: View {
                             .font(.kr12b)
                             .foregroundColor(.gray90)
                             .onTapGesture {
-                                
+                                vm.onClickCreateGroup()
                             }
                     }
                 }

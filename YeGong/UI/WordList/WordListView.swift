@@ -161,7 +161,9 @@ struct WordListView: View {
                         Text($vm.isVisibleWord.wrappedValue ? item.word : "")
                             .font(.kr18b)
                             .foregroundColor(.gray90)
-                        WordLevelBadge(type: item.level.levelBadgeType())
+                        if let level = item.level {
+                            WordLevelBadge(type: level.levelBadgeType())
+                        }
                     }
                     Text($vm.isVisibleMean.wrappedValue ? item.mean : "")
                         .font(.kr16r)

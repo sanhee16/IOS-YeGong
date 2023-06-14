@@ -53,9 +53,7 @@ class GroupViewModel: BaseViewModel {
         self.groups.removeAll()
         self.groupItems.removeAll()
         
-        self.list = Array(self.realm.objects(Voca.self).filter({ voca in
-            self.filters.contains { $0.rawValue == voca.level }
-        }))
+        self.list = Array(self.realm.objects(Voca.self))
         self.groups = Array(self.realm.objects(VocaGroup.self).filter({ group in
             group.isVisible
         }))
@@ -65,7 +63,6 @@ class GroupViewModel: BaseViewModel {
             }).count
             return WordCardGroupItem(group: group, cnt: cnt)
         })
-        
     }
     
     func onClickStudy(_ group: WordCardGroupItem) {
@@ -80,5 +77,11 @@ class GroupViewModel: BaseViewModel {
         self.coordinator?.presentSelectVisibleGroupView {[weak self] in
             self?.onAppear()
         }
+    }
+    
+    func onClickCreateGroup() {
+        self.coordinator?.presentEditGroupView(.create, onDismiss: {[weak self] in
+            self?.onAppear()
+        })
     }
 }

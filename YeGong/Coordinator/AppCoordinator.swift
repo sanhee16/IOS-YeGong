@@ -74,4 +74,9 @@ class AppCoordinator: Coordinator, Terminatable {
         let vc = SelectVisibleGroupView.vc(self)
         self.present(vc, animated: true, onDismiss: onDismiss)
     }
+    
+    func presentEditGroupView(_ type: EditGroupType, onDismiss: @escaping ()->()) {
+        let vc = EditGroupView.vc(self, type: type)
+        self.present(vc, animated: true, onDismiss: onDismiss)
+    }
 }
