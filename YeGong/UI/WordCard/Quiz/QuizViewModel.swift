@@ -54,15 +54,15 @@ class QuizViewModel: BaseViewModel {
         self.answers.removeAll()
         self.list.forEach { voca in
             if self.means.count <= 4 {
-                self.answers[voca]?.append(contentsOf: self.means)
+                self.answers[voca] = self.means
             } else {
                 self.answers[voca] = [voca.mean]
                 let newList = self.means.filter { str in
                     str != voca.mean
                 }.shuffled()
                 self.answers[voca]?.append(contentsOf: newList[0...2])
-                self.answers[voca]?.shuffle()
             }
+            self.answers[voca]?.shuffle()
         }
     }
     
