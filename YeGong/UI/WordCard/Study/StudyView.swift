@@ -8,8 +8,8 @@
 import SwiftUI
 import SwiftUIPager
 
-struct CardView: View {
-    typealias VM = CardViewModel
+struct StudyView: View {
+    typealias VM = StudyViewModel
     public static func vc(_ coordinator: AppCoordinator, group: VocaGroup, completion: (()-> Void)? = nil) -> UIViewController {
         let vm = VM.init(coordinator, group: group)
         let view = Self.init(vm: vm)

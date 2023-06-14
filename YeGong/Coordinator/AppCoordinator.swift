@@ -55,8 +55,8 @@ class AppCoordinator: Coordinator, Terminatable {
         self.present(vc, animated: true)
     }
     
-    func presentCardView(_ group: VocaGroup) {
-        let vc = CardView.vc(self, group: group)
+    func presentStudyView(_ group: VocaGroup) {
+        let vc = StudyView.vc(self, group: group)
         self.present(vc, animated: true)
     }
     

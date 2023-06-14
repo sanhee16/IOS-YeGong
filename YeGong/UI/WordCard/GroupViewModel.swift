@@ -16,7 +16,7 @@ struct WordCardGroupItem {
     var cnt: Int
 }
 
-class WordCardViewModel: BaseViewModel {
+class GroupViewModel: BaseViewModel {
     private let realm: Realm
     @Published var list: [Voca]
     @Published var groups: [VocaGroup]
@@ -66,7 +66,7 @@ class WordCardViewModel: BaseViewModel {
     }
     
     func onClickStudy(_ group: WordCardGroupItem) {
-        self.coordinator?.presentCardView(group.group)
+        self.coordinator?.presentStudyView(group.group)
     }
     
     func onClickQuiz(_ group: WordCardGroupItem) {

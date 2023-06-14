@@ -16,10 +16,12 @@ class R {
 class VocaGroup: Object {
     @Persisted(primaryKey: true) var _id: ObjectId
     @Persisted var text: String
+    @Persisted var isEditable: Bool
     
-    convenience init(_ text: String) {
+    convenience init(_ text: String, isEditable: Bool) {
         self.init()
         self.text = text
+        self.isEditable = isEditable
     }
 }
 
@@ -50,19 +52,4 @@ class Voca: Object {
         self.wrongCnt = 0
         self.groupId = groupId
     }
-    
-//    convenience init(id: ObjectId, word: String, mean: String, level: Int, examples: List<String>, starTime: Int?, studyTime: Int?, wrongCnt: Int, groupId: ObjectId
-//    ) {
-//        self.init()
-//        self._id = id
-//        self.type = type
-//        self.word = word
-//        self.mean = mean
-//        self.level = level
-//        self.examples = examples
-//        self.starTime = starTime
-//        self.studyTime = studyTime
-//        self.wrongCnt = wrongCnt
-//        self.groupId = groupId
-//    }
 }

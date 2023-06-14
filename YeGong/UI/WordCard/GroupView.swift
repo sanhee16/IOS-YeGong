@@ -8,8 +8,8 @@
 import SwiftUI
 import SwiftUIPager
 
-struct WordCardView: View {
-    typealias VM = WordCardViewModel
+struct GroupView: View {
+    typealias VM = GroupViewModel
     @ObservedObject var vm: VM
     
     private var safeTop: CGFloat { get { Util.safeTop() }}
@@ -18,7 +18,7 @@ struct WordCardView: View {
     var body: some View {
         GeometryReader { geometry in
             VStack(alignment: .leading, spacing: 0) {
-                Topbar("WordCard")
+                Topbar("Group")
                 ScrollView(.vertical, showsIndicators: true) {
                     LazyVGrid(columns: [
                         GridItem(alignment: .center),

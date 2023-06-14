@@ -70,7 +70,7 @@ struct WordListView: View {
                     .padding(EdgeInsets(top: 2, leading: 0, bottom: 2, trailing: 8))
                     
                     ScrollView(.vertical, showsIndicators: true) {
-                        VStack(spacing: 0) {
+                        LazyVStack(alignment: .center, spacing: 0, pinnedViews: [.sectionHeaders]) {
                             ForEach($vm.list.wrappedValue.indices, id: \.self) { idx in
                                 
                                 wordItem($vm.list.wrappedValue[idx], idx: idx)

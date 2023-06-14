@@ -78,7 +78,7 @@ class SplashViewModel: BaseViewModel {
         
         for i in 1...(vocaList.count/20){
             try! realm.write {
-                realm.add(VocaGroup("Day \(i)"))
+                realm.add(VocaGroup("Day \(i)", isEditable: false))
             }
         }
         

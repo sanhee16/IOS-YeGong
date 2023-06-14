@@ -11,7 +11,7 @@ import UIKit
 import SwiftUIPager
 import RealmSwift
 
-class CardViewModel: BaseViewModel {
+class StudyViewModel: BaseViewModel {
     let group: VocaGroup
     private let realm: Realm
     @Published var page: Page

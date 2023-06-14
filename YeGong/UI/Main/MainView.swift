@@ -35,12 +35,12 @@ struct MainView: View {
     public static func vc(_ coordinator: AppCoordinator, completion: (()-> Void)? = nil) -> UIViewController {
         let vm = VM.init(coordinator)
         let wordlistVm = WordListViewModel.init(coordinator)
-        let wordcardVm = WordCardViewModel.init(coordinator)
+        let groupVm = GroupViewModel.init(coordinator)
 //        let listVm = FootprintListViewModel.init(coordinator)
 //        let travelVm = TravelListViewModel.init(coordinator)
 //        let settingVm = SettingViewModel.init(coordinator)
         
-        let view = Self.init(vm: vm, wordlistVm: wordlistVm, wordcardVm: wordcardVm)
+        let view = Self.init(vm: vm, wordlistVm: wordlistVm, groupVm: groupVm)
 //        let view = Self.init(vm: vm, mapVm: mapVm, listVm: listVm, travelVm: travelVm, settingVm: settingVm)
         let vc = BaseViewController.init(view, completion: completion) {
             vm.viewDidLoad()
@@ -50,7 +50,7 @@ struct MainView: View {
     
     @ObservedObject var vm: VM
     @ObservedObject var wordlistVm: WordListViewModel
-    @ObservedObject var wordcardVm: WordCardViewModel
+    @ObservedObject var groupVm: GroupViewModel
 //    @ObservedObject var travelVm: TravelListViewModel
 //    @ObservedObject var settingVm: SettingViewModel
     
@@ -65,8 +65,8 @@ struct MainView: View {
                 switch($vm.currentTab.wrappedValue) {
                 case .wordlist:
                     WordListView(vm: self.wordlistVm)
-                case .wordcard:
-                    WordCardView(vm: self.wordcardVm)
+                case .group:
+                    GroupView(vm: self.groupVm)
 //                case .travel:
 //                    TravelListView(vm: self.travelVm)
 //                case .setting:
