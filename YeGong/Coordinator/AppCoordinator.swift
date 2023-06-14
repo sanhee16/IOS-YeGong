@@ -69,4 +69,9 @@ class AppCoordinator: Coordinator, Terminatable {
         let vc = AlertView.vc(self, type: type, title: title, description: description, callback: callback)
         self.present(vc, animated: false)
     }
+    
+    func presentSelectVisibleGroupView(_ onDismiss: @escaping ()->()) {
+        let vc = SelectVisibleGroupView.vc(self)
+        self.present(vc, animated: true, onDismiss: onDismiss)
+    }
 }

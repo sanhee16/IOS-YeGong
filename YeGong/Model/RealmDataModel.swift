@@ -17,11 +17,13 @@ class VocaGroup: Object {
     @Persisted(primaryKey: true) var _id: ObjectId
     @Persisted var text: String
     @Persisted var isEditable: Bool
+    @Persisted var isVisible: Bool
     
     convenience init(_ text: String, isEditable: Bool) {
         self.init()
         self.text = text
         self.isEditable = isEditable
+        self.isVisible = true
     }
 }
 

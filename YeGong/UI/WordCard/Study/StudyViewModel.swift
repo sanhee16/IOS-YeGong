@@ -24,7 +24,6 @@ class StudyViewModel: BaseViewModel {
         self.page = .withIndex(0)
         self.list = []
         super.init(coordinator)
-        
     }
     
     func onAppear() {

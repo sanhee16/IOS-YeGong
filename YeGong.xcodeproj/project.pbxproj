@@ -22,6 +22,9 @@
 		267019D02A2C5212001C18B5 /* C.swift in Sources */ = {isa = PBXBuildFile; fileRef = 267019CF2A2C5212001C18B5 /* C.swift */; };
 		267019D22A2C52B5001C18B5 /* MainTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 267019D12A2C52B5001C18B5 /* MainTabBar.swift */; };
 		267019D42A2C54C6001C18B5 /* RemoteConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 267019D32A2C54C6001C18B5 /* RemoteConfig.swift */; };
+		2684EEF62A395FF200C37668 /* SelectVisibleGroupViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2684EEF52A395FF200C37668 /* SelectVisibleGroupViewModel.swift */; };
+		2684EEF82A395FFF00C37668 /* SelectVisibleGroupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2684EEF72A395FFF00C37668 /* SelectVisibleGroupView.swift */; };
+		2684EEFA2A39640500C37668 /* SToggle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2684EEF92A39640500C37668 /* SToggle.swift */; };
 		269009EE2A2B224800653275 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 269009ED2A2B224800653275 /* Assets.xcassets */; };
 		269009F12A2B224800653275 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 269009F02A2B224800653275 /* Preview Assets.xcassets */; };
 		269009F92A2B236900653275 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 269009F82A2B236900653275 /* AppCoordinator.swift */; };
@@ -75,6 +78,9 @@
 		267019CF2A2C5212001C18B5 /* C.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = C.swift; sourceTree = "<group>"; };
 		267019D12A2C52B5001C18B5 /* MainTabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBar.swift; sourceTree = "<group>"; };
 		267019D32A2C54C6001C18B5 /* RemoteConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteConfig.swift; sourceTree = "<group>"; };
+		2684EEF52A395FF200C37668 /* SelectVisibleGroupViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectVisibleGroupViewModel.swift; sourceTree = "<group>"; };
+		2684EEF72A395FFF00C37668 /* SelectVisibleGroupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectVisibleGroupView.swift; sourceTree = "<group>"; };
+		2684EEF92A39640500C37668 /* SToggle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SToggle.swift; sourceTree = "<group>"; };
 		269009E62A2B224600653275 /* YeGong.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YeGong.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		269009ED2A2B224800653275 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		269009F02A2B224800653275 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
@@ -147,6 +153,7 @@
 		2663DD332A2EF966000DCC09 /* WordCard */ = {
 			isa = PBXGroup;
 			children = (
+				2684EEF22A395FDE00C37668 /* SelectVisibleGroup */,
 				2663DD352A2EF976000DCC09 /* Quiz */,
 				265D2D1F2A3366E2002624FD /* Study */,
 				26959BD02A32EAD800C4DE74 /* GroupView.swift */,
@@ -179,6 +186,15 @@
 				2663DD3B2A2EFD11000DCC09 /* BluePrintViewModel.swift */,
 			);
 			path = BluePrint;
+			sourceTree = "<group>";
+		};
+		2684EEF22A395FDE00C37668 /* SelectVisibleGroup */ = {
+			isa = PBXGroup;
+			children = (
+				2684EEF72A395FFF00C37668 /* SelectVisibleGroupView.swift */,
+				2684EEF52A395FF200C37668 /* SelectVisibleGroupViewModel.swift */,
+			);
+			path = SelectVisibleGroup;
 			sourceTree = "<group>";
 		};
 		269009DD2A2B224600653275 = {
@@ -307,6 +323,7 @@
 				267019D12A2C52B5001C18B5 /* MainTabBar.swift */,
 				2663DD432A2EFD65000DCC09 /* Topbar.swift */,
 				2663DD4A2A2F043F000DCC09 /* WordLevelBadge.swift */,
+				2684EEF92A39640500C37668 /* SToggle.swift */,
 			);
 			path = CommonView;
 			sourceTree = "<group>";
@@ -492,9 +509,11 @@
 				26900A1C2A2B28DD00653275 /* SProgress.swift in Sources */,
 				267019D42A2C54C6001C18B5 /* RemoteConfig.swift in Sources */,
 				265D2D232A3366F2002624FD /* StudyViewModel.swift in Sources */,
+				2684EEF62A395FF200C37668 /* SelectVisibleGroupViewModel.swift in Sources */,
 				269009FE2A2B248200653275 /* AppDelegate.swift in Sources */,
 				269009FB2A2B238300653275 /* Coordinator.swift in Sources */,
 				26900A0D2A2B25BC00653275 /* AlertViewModel.swift in Sources */,
+				2684EEF82A395FFF00C37668 /* SelectVisibleGroupView.swift in Sources */,
 				269009F92A2B236900653275 /* AppCoordinator.swift in Sources */,
 				26900A162A2B267100653275 /* DataModel.swift in Sources */,
 				2658EE2A2A2E00FA00CF8AFA /* RealmDataModel.swift in Sources */,
@@ -506,6 +525,7 @@
 				26959BD32A32EADE00C4DE74 /* GroupViewModel.swift in Sources */,
 				26900A0F2A2B25E400653275 /* SwiftUIExtension.swift in Sources */,
 				265D2D252A337830002624FD /* QuizView.swift in Sources */,
+				2684EEFA2A39640500C37668 /* SToggle.swift in Sources */,
 				26ED56092A2C19E8006A8810 /* SplashViewModel.swift in Sources */,
 				267019D22A2C52B5001C18B5 /* MainTabBar.swift in Sources */,
 				2663DD442A2EFD65000DCC09 /* Topbar.swift in Sources */,

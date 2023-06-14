@@ -18,7 +18,24 @@ struct GroupView: View {
     var body: some View {
         GeometryReader { geometry in
             VStack(alignment: .leading, spacing: 0) {
-                Topbar("Group")
+                ZStack(alignment: .center) {
+                    Topbar("Group")
+                    HStack(alignment: .center, spacing: 12) {
+                        Spacer()
+                        Text("표시")
+                            .font(.kr12b)
+                            .foregroundColor(.gray90)
+                            .onTapGesture {
+                                vm.onClickSelectGroup()
+                            }
+                        Text("추가")
+                            .font(.kr12b)
+                            .foregroundColor(.gray90)
+                            .onTapGesture {
+                                
+                            }
+                    }
+                }
                 ScrollView(.vertical, showsIndicators: true) {
                     LazyVGrid(columns: [
                         GridItem(alignment: .center),

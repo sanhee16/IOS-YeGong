@@ -34,6 +34,7 @@ class GroupViewModel: BaseViewModel {
     }
     
     func onAppear() {
+        print("onAppear!!")
         self.getVoca()
     }
     
@@ -55,7 +56,9 @@ class GroupViewModel: BaseViewModel {
         self.list = Array(self.realm.objects(Voca.self).filter({ voca in
             self.filters.contains { $0.rawValue == voca.level }
         }))
-        self.groups = Array(self.realm.objects(VocaGroup.self))
+        self.groups = Array(self.realm.objects(VocaGroup.self).filter({ group in
+            group.isVisible
+        }))
         self.groupItems = self.groups.map({ group in
             let cnt = Array(self.list.filter { voca in
                 voca.groupId == group._id
@@ -71,5 +74,11 @@ class GroupViewModel: BaseViewModel {
     
     func onClickQuiz(_ group: WordCardGroupItem) {
         self.coordinator?.presentQuizView(group.group)
+    }
+    
+    func onClickSelectGroup() {
+        self.coordinator?.presentSelectVisibleGroupView {[weak self] in
+            self?.onAppear()
+        }
     }
 }
