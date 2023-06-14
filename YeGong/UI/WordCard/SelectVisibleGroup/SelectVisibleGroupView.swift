@@ -25,8 +25,29 @@ struct SelectVisibleGroupView: View {
     var body: some View {
         GeometryReader { geometry in
             VStack(alignment: .leading, spacing: 0) {
-                Topbar("그룹 선택하기", type: .back) {
-                    vm.onClose()
+                ZStack(alignment: .center) {
+                    Topbar("그룹 선택하기", type: .back) {
+                        vm.onClose()
+                    }
+                    HStack(alignment: .center, spacing: 12) {
+                        Spacer()
+                        Text("전체 선택")
+                            .font(.kr12b)
+                            .foregroundColor(.gray90)
+                            .onTapGesture {
+                                withAnimation {
+                                    vm.onClickSelectAll()
+                                }
+                            }
+                        Text("전체 해제")
+                            .font(.kr12b)
+                            .foregroundColor(.gray90)
+                            .onTapGesture {
+                                withAnimation {
+                                    vm.onClickUnSelectAll()
+                                }
+                            }
+                    }
                 }
                 ScrollView(.vertical, showsIndicators: false) {
                     LazyVGrid(columns: [GridItem(),GridItem()], alignment: .center, spacing: 8, pinnedViews: []) {

@@ -17,7 +17,6 @@ class SelectVisibleGroupViewModel: BaseViewModel {
     override init(_ coordinator: AppCoordinator) {
         self.realm = R.realm
         super.init(coordinator)
-        
     }
     
     func onAppear() {
@@ -41,6 +40,30 @@ class SelectVisibleGroupViewModel: BaseViewModel {
                 self.realm.add(item, update: .modified)
                 self.getGroups()
             }
+        }
+    }
+    
+    func onClickSelectAll() {
+        try! self.realm.write {[weak self] in
+            guard let self = self else { return }
+            Array(self.realm.objects(VocaGroup.self))
+                .forEach { group in
+                    group.isVisible = true
+                    self.realm.add(group, update: .modified)
+                }
+            self.getGroups()
+        }
+    }
+    
+    func onClickUnSelectAll() {
+        try! self.realm.write {[weak self] in
+            guard let self = self else { return }
+            Array(self.realm.objects(VocaGroup.self))
+                .forEach { group in
+                    group.isVisible = false
+                    self.realm.add(group, update: .modified)
+                }
+            self.getGroups()
         }
     }
 }
